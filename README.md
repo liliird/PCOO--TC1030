@@ -6,7 +6,7 @@ Este proyecto modela una simulación de un banco, donde se pueden realizar opera
 
 ## Funcionalidad
 
-El main consta de un menú con las posibles operaciones a realizar dentro del banco como crear, eliminar y consultar clientes, a su vez para cada cliente se pueden crear, eliminar y consultar los diferentes tipos de cuentas (cuenta de ahorro o cuenta corriente) y para cada cuenta se pueden realizar depósitos y/o retiros.
+El main consta de un menú con las posibles operaciones a realizar dentro del banco como crear, eliminar y consultar clientes, a su vez para cada cliente se pueden crear, eliminar y consultar los diferentes tipos de cuentas (cuenta de ahorro o cuenta corriente) y para cada cuenta se pueden realizar depósitos y/o retiros, de este último movimiento, en el caso de la cuenta corriente, en caso de que el saldo no sea suficiente para el retiro, el usuario puede elegir si desea hacer uso del sobregiro. En el caso de la cuenta de ahorro, a la hora de realizar el retiro, el usuario puede consultar su interés hasta el momento.
 
 ## Consideraciones
 Compilar con: "g++ Banco.h Cliente.h Cuenta.h main.cpp"
