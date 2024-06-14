@@ -12,3 +12,5 @@ El main consta de un menú con las posibles operaciones a realizar dentro del ba
 Compilar con: "g++ Banco.h Cliente.h Cuenta.h main.cpp"
 correr en linux: "/a.out"
 correr en windows: "a.exe"
+Es importante saber que es necesario crear un cliente y una cuenta para poder realizar movimientos en la misma, en caso de no tener alguno de estos dos, el ciclo indica que el usuario no fue encontrado, ya que para poder acceder a una cuenta, primero se ingresa al cliente y si el ciclo no lo encuentra, mandará el mensaje ya indicado.
+Por ejemplo, si queremos realizar un depósito, primero debimos haber creado un cliente y posteriormente una cuenta del tipo de preferencia, de otra manera, veremos en pantalla el mensaje "Cliente no encontrado".
