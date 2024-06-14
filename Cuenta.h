@@ -28,7 +28,7 @@ class Cuenta{
     //Declaro los metodos que va a tener el objeto
     public:
         Cuenta(): idCuenta(""), saldo(0){}; //Constructor por default
-        Cuenta(string id, double sal, string tip): idCuenta(id), saldo(sal), tipo(tip){};
+        Cuenta(string id, double sal, string tip): idCuenta(id), saldo(sal){};
         
         //getters
         string get_id(){
