@@ -44,9 +44,10 @@ int main() {
                 cout << "Ingrese ID del cliente: ";
                 cin >> id;
                 cout << "Ingrese nombre del cliente: ";
-                cin >> nombre;
+                cin.ignore();
+                getline(cin, nombre);
                 cout << "Ingrese direccion del cliente: ";
-                cin >> direccion;
+                getline(cin, direccion);
                 cout << "Ingrese telefono del cliente: ";
                 cin >> telefono;
                 Cliente* cliente = new Cliente(id, nombre, direccion, telefono);
