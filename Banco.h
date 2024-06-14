@@ -1,14 +1,22 @@
+/*
+ *
+ * Proyecto Simulación de Banco
+ * Lilian Rodríguez Uribe
+ * A01711949
+ * 14/06/2024
+ * Esta clase define objeto de tipo Banco que contiene todas las operaciones
+ * para agregar, eliminar y buscar clientes, esta clase es utilizada por la función principal del programa.
+ */
+
 #ifndef BANCO_H
 #define BANCO_H
 #include <string>
 #include <iostream>
-//#include <sstream>
 #include <vector>
-#include <algorithm>
-#include "Cliente.h"
+#include "Cliente.h" //biblioteca con mis objetos a usar
 using namespace std;
 
-//Clase Banco
+
 class Banco {
     private:
         //Variables privadas nombre y vector cliente que es un vector 
@@ -29,29 +37,28 @@ class Banco {
             nombre= newNom;
         }
 
-        //Método que agrega un puntero a un objeto Cliente al vector clientes
+        /**Método que agrega un puntero a un objeto Cliente al vector clientes (agrega un cliente)
+        */
         void agregarCliente(Cliente* cliente) {
             clientes.push_back(cliente);
         }
-        //Método que elimina un cliente del vector clientes según su id
+        /** Método que elimina un cliente del vector clientes según su id
+        */
         void eliminarCliente(string id) {
-            //El algoritmo remove_if reordena el vector clientes, moviendo los clientes
-            // de los cuales coincide el id proporcionado al final
-            auto it = remove_if(clientes.begin(), clientes.end(), [&](Cliente* cliente) {
-                return cliente->getId() == id;
-            });
-            //Ciclo que verifica si se encontró un cliente con el id proporcionado
-            if (it != clientes.end()) {
-                //Si la condición se cumple, se libera la memoria del cliente y se 
-                // elimina el cliente del vector clientes
-                delete *it;
-                clientes.erase(it, clientes.end());
-            } else {
-                cout << "Cliente no encontrado." << endl;
+            for (auto it = clientes.begin(); it != clientes.end(); ++it) {
+                if ((*it)->getId() == id) {
+                    delete *it;
+                    clientes.erase(it);
+                    cout << "Cliente eliminado correctamente." << endl;
+                    return;
+                }
             }
+            cout << "Cliente no encontrado." << endl;
         }
-        //Método que busca un cliente por su id y si lo encuentra devuelve un puntero 
-        // al cliente, si no devuelve nullptr
+
+        /**Método que busca un cliente por su id y si lo encuentra devuelve un puntero 
+         *al cliente, si no devuelve nullptr
+         */
         Cliente* buscarCliente(string id) const {
             for (const auto& cliente : clientes) {
                 if (cliente->getId() == id) {
@@ -60,12 +67,13 @@ class Banco {
             }
             return nullptr;
         }
-        // Destructor de Banco que libera la memoria de todos los objetos Cliente
-        // almacenados en el vector clientes
+        /**  Destructor de Banco que libera la memoria de todos los objetos Cliente
+         * almacenados en el vector clientes
+         */
         ~Banco() {
             for (auto cliente : clientes) {
                 delete cliente;
             }
         }
 };
-#endif
+#endif // BANCO_H_
